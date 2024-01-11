@@ -45,7 +45,7 @@ if [ ! -s /tmp/pos$sat.html ]; then
 fi
 
 echo "convert pos$sat to ascii"
-iconv -f UTF-8 -t ASCII//TRANSLIT < /tmp/pos$sat.html > /tmp/pos$sat-asc.html
+iconv -f UTF-8 -t ASCII//TRANSLIT < /tmp/pos$sat.html | sed -e 's,&nbsp;,,g' > /tmp/pos$sat-asc.html
 
 echo "parse kingofsat data for pos$sat"
 
@@ -69,7 +69,7 @@ s,<a class=\"bld\">\([^<]*\)</a> <a class=\"bld\">\([^<]*\)</a>,\1000</td><td>\2
 # convert Frequency into kHz:
 s, *<td [^>]*class=\"bld\">\(.....\).\(..\)</td>,<td>\1\20</td>,
 # convert Satellite position from string to value:
-s,<td class=\"pos\" dir=\"ltr\">\([^<]*\)..</td>,<td>\1</td>,
+s,<td class=\"pos\" dir=\"ltr\">\([^<]*\)&deg;.</td>,<td>\1</td>,
 h}
 /<td>Audio<\/td>/ d
 /<td class=\"ch\">/{
