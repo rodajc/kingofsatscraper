@@ -87,7 +87,7 @@ b cont}
 s,.*<td.*<td.*\(<td.*<td.*<td.*<td.*<td.*<td.*\),<td>1</td>\1,
 : cont
 # replace all but last bouquet names with Package names followed by comma:
-s_<a class=\"bq\"[^>]*>\([^<]*\)</a><br/>_\1,_g
+s_<a class=\"bq\"[^>]*>\([^<]*\)</a><br>_\1,_g
 # replace last bouquet name with Package name:
 s,<a class=\"bq\"[^>]*>\([^<]*\)</a>,\1,
 G
