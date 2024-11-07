@@ -67,7 +67,7 @@ s,<span class=\"nbc\">.*</span><a class=\"bld\">,,
 # divide cell with Symbolrate and FEC and add 3 zeros to Symbolrate:
 s,<a class=\"bld\">\([^<]*\)</a> <a class=\"n*bld\">\([^<]*\)</a>,\1000</td><td>\2,
 # convert Frequency into kHz:
-s, *<td [^>]*class=\"bld\">\(.....\).\(..\)</td>,<td>\1\20</td>,
+s, *<td [^>]*class=\"n*bld\">\(.....\).\(..\)</td>,<td>\1\20</td>,
 # convert Satellite position from string to value:
 s,<td class=\"pos\" dir=\"ltr\">\([^<]*\)&deg;.</td>,<td>\1</td>,
 h}
